@@ -86,5 +86,21 @@ export const shortcuts = [
     description: "KLU Learning Management System",
     iconName: "BookOpen",
     japaneseLabel: "学習管理"
+  },
+  {
+    name: "My Siva Portfolio",
+    url: "https://palaparthi-siva-portfolio.vercel.app",
+    category: "Professional",
+    description: "Personal Portfolio",
+    iconName: "Briefcase",
+    japaneseLabel: "ポートフォリオ"
+  },
+  {
+    name: "Vercel",
+    url: "https://vercel.com/palaparthi-siva",
+    category: "Development",
+    description: "Vercel Dashboard",
+    iconName: "Triangle",
+    japaneseLabel: "デプロイ"
   }
 ];

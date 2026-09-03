@@ -34,10 +34,11 @@ const ShortcutCard = ({ shortcut }) => {
       <motion.a
         href={shortcut.url}
         onClick={handleClick}
-        whileHover={{ y: -5, scale: 1.02 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ y: -6, scale: 1.02 }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className={`relative z-10 block h-full p-5 rounded-2xl glass-panel group transition-all duration-300 hover:shadow-[0_8px_30px_rgba(255,255,255,0.12)] hover:border-white/40 ${
-          isClicked ? 'bg-white/60 dark:bg-slate-800/80 shadow-[0_0_40px_rgba(255,255,255,0.3)] border-white/60' : ''
+          isClicked ? 'bg-white/60 dark:bg-white/30 shadow-[0_0_40px_rgba(255,255,255,0.3)] border-white/60' : ''
         }`}
       >
         <div className="flex justify-between items-start mb-4">

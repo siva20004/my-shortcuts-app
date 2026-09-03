@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full py-6 mt-auto">
+    <footer id="about" className="w-full py-6 mt-auto">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         <div className="glass-panel px-6 py-3 rounded-2xl flex flex-col items-center space-y-1">
           <p className="text-xs font-medium tracking-widest font-['Noto_Sans_JP']">私のデジタルポータル</p>

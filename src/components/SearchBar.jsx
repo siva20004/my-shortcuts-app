@@ -29,7 +29,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
       className="w-full max-w-md relative group"
     >
       <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-        <Search size={18} className="text-slate-400 group-focus-within:text-japan-red transition-colors" />
+        <Search size={18} className="text-slate-400 group-focus-within:text-japan-red transition-colors duration-300 ease-out" />
       </div>
       <input
         ref={inputRef}
@@ -37,7 +37,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search shortcuts..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="w-full glass-panel bg-white/20 dark:bg-slate-900/40 rounded-2xl py-3 pl-12 pr-16 text-sm placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-japan-red/50 transition-all duration-300 shadow-lg"
+        className="w-full glass-panel rounded-2xl py-3 pl-12 pr-16 text-sm placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-japan-red/50 transition-all duration-300 shadow-lg"
       />
       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
         <div className="hidden sm:flex items-center space-x-1 text-[10px] text-slate-400 bg-black/5 dark:bg-white/10 px-2 py-1 rounded-md border border-black/5 dark:border-white/10">

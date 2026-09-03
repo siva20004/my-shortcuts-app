@@ -79,7 +79,7 @@ function App() {
           <Hero />
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           
-          <div className="w-full max-w-5xl mt-12 space-y-12">
+          <div id="shortcuts" className="w-full max-w-5xl mt-12 space-y-12">
             {categories.map(category => (
               <CategorySection 
                 key={category} 

@@ -6,7 +6,7 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
   return (
     <button 
       onClick={toggleTheme}
-      className="relative p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-japan-red/50"
+      className="relative p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-300 ease-out focus:outline-none"
       aria-label="Toggle Theme"
     >
       <motion.div
