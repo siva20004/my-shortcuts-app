@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import SakuraAnimation from './components/SakuraAnimation';
 import AppsSection from './components/AppsSection';
+import SecretSpace from './components/SecretSpace';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -92,6 +93,8 @@ function App() {
             <div id="apps" className="w-full mt-8">
               <AppsSection appsTheme={appsTheme} />
             </div>
+          ) : activeView === 'secret' ? (
+            <SecretSpace />
           ) : (
             <>
               <Hero />
@@ -116,7 +119,7 @@ function App() {
           )}
         </main>
 
-        <Footer />
+        <Footer setActiveView={setActiveView} />
       </div>
     </div>
   );
