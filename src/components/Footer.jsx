@@ -61,7 +61,7 @@ const Footer = ({ setActiveView }) => {
                 activeState === 'red' 
                   ? 'bg-red-500 shadow-[0_0_8px_#ef4444] animate-[pulse_1s_ease-in-out_infinite]' 
                   : activeState === 'purple'
-                  ? 'bg-purple-500 shadow-[0_0_8px_#a855f7] animate-[pulse_1s_ease-in-out_infinite]'
+                  ? 'bg-purple-400 shadow-[0_0_16px_#c084fc] animate-[pulse_0.7s_ease-in-out_infinite] scale-110'
                   : 'bg-green-500 shadow-[0_0_8px_#22c55e] animate-[pulse_1s_ease-in-out_infinite]'
               }`}
             />
