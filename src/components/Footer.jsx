@@ -3,35 +3,42 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Folder } from 'lucide-react';
 
 const Footer = ({ setActiveView }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [activeState, setActiveState] = useState('red');
   const [clickCount, setClickCount] = useState(0);
 
   // Handle the 10-second active window
   useEffect(() => {
     let timeout;
-    if (isActive) {
+    if (activeState !== 'red') {
       timeout = setTimeout(() => {
-        setIsActive(false);
+        setActiveState('red');
         setClickCount(0);
       }, 10000);
     } else {
       setClickCount(0);
     }
     return () => clearTimeout(timeout);
-  }, [isActive]);
+  }, [activeState]);
 
   const toggleLight = (e) => {
     e.stopPropagation();
-    setIsActive(prev => !prev);
+    setActiveState(prev => {
+      if (prev === 'red') return 'purple';
+      if (prev === 'purple') return 'green';
+      return 'red';
+    });
   };
 
   const handleTextClick = () => {
-    if (!isActive) return; // Do nothing if the light is red
+    if (activeState === 'red') return; // Do nothing if the light is red
 
     const newCount = clickCount + 1;
     if (newCount >= 3) {
-      if (setActiveView) setActiveView('secret');
-      setIsActive(false); // Reset state
+      if (setActiveView) {
+        if (activeState === 'purple') setActiveView('secret-vpe');
+        if (activeState === 'green') setActiveView('secret-linkedin');
+      }
+      setActiveState('red'); // Reset state
       setClickCount(0);
     } else {
       setClickCount(newCount);
@@ -51,8 +58,10 @@ const Footer = ({ setActiveView }) => {
             <div 
               onClick={toggleLight}
               className={`w-2 h-2 rounded-full cursor-pointer transition-colors duration-300 flex-shrink-0 ${
-                !isActive 
+                activeState === 'red' 
                   ? 'bg-red-500 shadow-[0_0_8px_#ef4444] animate-[pulse_1s_ease-in-out_infinite]' 
+                  : activeState === 'purple'
+                  ? 'bg-purple-500 shadow-[0_0_8px_#a855f7] animate-[pulse_1s_ease-in-out_infinite]'
                   : 'bg-green-500 shadow-[0_0_8px_#22c55e] animate-[pulse_1s_ease-in-out_infinite]'
               }`}
             />

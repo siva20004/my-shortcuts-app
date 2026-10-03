@@ -93,8 +93,10 @@ function App() {
             <div id="apps" className="w-full mt-8">
               <AppsSection appsTheme={appsTheme} />
             </div>
-          ) : activeView === 'secret' ? (
-            <SecretSpace />
+          ) : activeView === 'secret-linkedin' ? (
+            <SecretSpace variant="linkedin" />
+          ) : activeView === 'secret-vpe' ? (
+            <SecretSpace variant="vpe" />
           ) : (
             <>
               <Hero />
