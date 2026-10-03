@@ -4,31 +4,41 @@ import { ExternalLink, User, Code } from 'lucide-react';
 
 const SecretSpace = ({ variant = 'linkedin' }) => {
   const isLinkedIn = variant === 'linkedin';
+  const isSaikiran = variant === 'saikiran';
+  const isVPE = variant === 'vpe';
 
-  const linkUrl = isLinkedIn 
+  const linkUrl = isSaikiran
+    ? "/saikiran.jpg"
+    : isLinkedIn 
     ? "https://www.linkedin.com/in/siva-palaparthi-5927b8302/" 
     : "https://vpe-frontend.vercel.app/";
 
-  const title = isLinkedIn ? "Siva Palaparthi" : "VPE App";
-  const subtitle = isLinkedIn ? "LinkedIn Profile" : "VPE Frontend App";
-  const btnText = isLinkedIn ? "Connect" : "Launch App";
+  const title = isSaikiran ? "Sai Kiran" : isLinkedIn ? "Siva Palaparthi" : "VPE App";
+  const subtitle = isSaikiran ? "Secret Identity" : isLinkedIn ? "LinkedIn Profile" : "VPE Frontend App";
+  const btnText = isSaikiran ? "View Photo" : isLinkedIn ? "Connect" : "Launch App";
 
   // Dynamic Theme Colors
   const theme = {
-    bgGradient: isLinkedIn 
+    bgGradient: isSaikiran
+      ? "bg-[radial-gradient(circle_at_center,_#0f172a_0%,_#000000_100%)]"
+      : isLinkedIn 
       ? "bg-[radial-gradient(circle_at_center,_#330000_0%,_#000000_100%)]"
       : "bg-[radial-gradient(circle_at_center,_#3b0764_0%,_#000000_100%)]",
-    lineGradient: isLinkedIn
+    lineGradient: isSaikiran
+      ? "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(59,130,246,0.1)_2px,rgba(59,130,246,0.1)_4px)]"
+      : isLinkedIn
       ? "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,0,0,0.1)_2px,rgba(255,0,0,0.1)_4px)]"
       : "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(168,85,247,0.1)_2px,rgba(168,85,247,0.1)_4px)]",
-    titleText: isLinkedIn ? "text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]" : "text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]",
-    cardBorder: isLinkedIn ? "border-red-500/20 hover:border-red-500/50" : "border-purple-500/20 hover:border-purple-500/50",
-    cardShadow: isLinkedIn ? "shadow-[0_0_50px_rgba(220,38,38,0.15)] hover:shadow-[0_0_80px_rgba(220,38,38,0.3)]" : "shadow-[0_0_50px_rgba(168,85,247,0.15)] hover:shadow-[0_0_80px_rgba(168,85,247,0.3)]",
-    cardHoverBg: isLinkedIn ? "from-red-500/5" : "from-purple-500/5",
-    iconBg: isLinkedIn ? "bg-red-950/40 border-red-500/30 group-hover:border-red-500/60" : "bg-purple-950/40 border-purple-500/30 group-hover:border-purple-500/60",
-    iconColor: isLinkedIn ? "text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]" : "text-purple-500 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]",
-    subtitleText: isLinkedIn ? "text-red-400" : "text-purple-400",
-    btnTheme: isLinkedIn 
+    titleText: isSaikiran ? "text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]" : isLinkedIn ? "text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]" : "text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]",
+    cardBorder: isSaikiran ? "border-blue-500/20 hover:border-blue-500/50" : isLinkedIn ? "border-red-500/20 hover:border-red-500/50" : "border-purple-500/20 hover:border-purple-500/50",
+    cardShadow: isSaikiran ? "shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:shadow-[0_0_80px_rgba(59,130,246,0.3)]" : isLinkedIn ? "shadow-[0_0_50px_rgba(220,38,38,0.15)] hover:shadow-[0_0_80px_rgba(220,38,38,0.3)]" : "shadow-[0_0_50px_rgba(168,85,247,0.15)] hover:shadow-[0_0_80px_rgba(168,85,247,0.3)]",
+    cardHoverBg: isSaikiran ? "from-blue-500/5" : isLinkedIn ? "from-red-500/5" : "from-purple-500/5",
+    iconBg: isSaikiran ? "bg-blue-950/40 border-blue-500/30 group-hover:border-blue-500/60" : isLinkedIn ? "bg-red-950/40 border-red-500/30 group-hover:border-red-500/60" : "bg-purple-950/40 border-purple-500/30 group-hover:border-purple-500/60",
+    iconColor: isSaikiran ? "text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]" : isLinkedIn ? "text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]" : "text-purple-500 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]",
+    subtitleText: isSaikiran ? "text-blue-400" : isLinkedIn ? "text-red-400" : "text-purple-400",
+    btnTheme: isSaikiran 
+      ? "bg-blue-500/10 border-blue-500/30 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 text-blue-400"
+      : isLinkedIn 
       ? "bg-red-500/10 border-red-500/30 group-hover:bg-red-500/20 group-hover:border-red-500/50 text-red-400"
       : "bg-purple-500/10 border-purple-500/30 group-hover:bg-purple-500/20 group-hover:border-purple-500/50 text-purple-400"
   };
@@ -64,8 +74,13 @@ const SecretSpace = ({ variant = 'linkedin' }) => {
           <div className={`absolute inset-0 bg-gradient-to-br ${theme.cardHoverBg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
           
           <div className="relative z-10 flex flex-col items-center w-full">
-            <div className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-6 border group-hover:scale-110 transition-all duration-500 shadow-inner ${theme.iconBg}`}>
-              {isLinkedIn ? (
+            <div className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-6 border group-hover:scale-110 transition-all duration-500 shadow-inner relative overflow-hidden ${theme.iconBg}`}>
+              {isSaikiran ? (
+                <>
+                  <img src="/saikiran.jpg" alt="Sai Kiran" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" />
+                  <User className={`w-12 h-12 relative z-10 ${theme.iconColor}`} />
+                </>
+              ) : isLinkedIn ? (
                 <User className={`w-12 h-12 ${theme.iconColor}`} />
               ) : (
                 <Code className={`w-12 h-12 ${theme.iconColor}`} />

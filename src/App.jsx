@@ -97,6 +97,8 @@ function App() {
             <SecretSpace variant="linkedin" />
           ) : activeView === 'secret-vpe' ? (
             <SecretSpace variant="vpe" />
+          ) : activeView === 'secret-saikiran' ? (
+            <SecretSpace variant="saikiran" />
           ) : (
             <>
               <Hero />
