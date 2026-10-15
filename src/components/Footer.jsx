@@ -23,7 +23,8 @@ const Footer = ({ setActiveView }) => {
   const toggleLight = (e) => {
     e.stopPropagation();
     setActiveState(prev => {
-      if (prev === 'red') return 'blue';
+      if (prev === 'red') return 'pink';
+      if (prev === 'pink') return 'blue';
       if (prev === 'blue') return 'purple';
       if (prev === 'purple') return 'green';
       return 'red';
@@ -36,6 +37,7 @@ const Footer = ({ setActiveView }) => {
     const newCount = clickCount + 1;
     if (newCount >= 3) {
       if (setActiveView) {
+        if (activeState === 'pink') setActiveView('secret-pink');
         if (activeState === 'blue') setActiveView('secret-saikiran');
         if (activeState === 'purple') setActiveView('secret-vpe');
         if (activeState === 'green') setActiveView('secret-linkedin');
@@ -62,6 +64,8 @@ const Footer = ({ setActiveView }) => {
               className={`w-2 h-2 rounded-full cursor-pointer transition-colors duration-300 flex-shrink-0 ${
                 activeState === 'red' 
                   ? 'bg-red-500 shadow-[0_0_8px_#ef4444] animate-[pulse_1s_ease-in-out_infinite]' 
+                  : activeState === 'pink'
+                  ? 'bg-pink-400 shadow-[0_0_14px_#f472b6] animate-[pulse_0.75s_ease-in-out_infinite] scale-105'
                   : activeState === 'blue'
                   ? 'bg-blue-500 shadow-[0_0_12px_#3b82f6] animate-[pulse_0.85s_ease-in-out_infinite]'
                   : activeState === 'purple'
