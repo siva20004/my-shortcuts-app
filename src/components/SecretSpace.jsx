@@ -1,93 +1,42 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, User, Code, Users } from 'lucide-react';
+import { ExternalLink, User, Code } from 'lucide-react';
 
 const SecretSpace = ({ variant = 'linkedin' }) => {
   const isLinkedIn = variant === 'linkedin';
   const isSaikiran = variant === 'saikiran';
   const isVPE = variant === 'vpe';
-  const isPink = variant === 'pink';
 
-  const linkUrl = isPink
-    ? "/friends.jpg"
-    : isSaikiran
+  const linkUrl = isSaikiran
     ? "/saikiran.jpg"
     : isLinkedIn 
     ? "https://www.linkedin.com/in/siva-palaparthi-5927b8302/" 
     : "https://vpe-frontend.vercel.app/";
 
-  const title = isPink ? "Friends" : isSaikiran ? "Sai Kiran" : isLinkedIn ? "Siva Palaparthi" : "VPE App";
-  const subtitle = isPink ? "Special Memories" : isSaikiran ? "Secret Identity" : isLinkedIn ? "LinkedIn Profile" : "VPE Frontend App";
-  const btnText = isPink ? "View Photo" : isSaikiran ? "View Photo" : isLinkedIn ? "Connect" : "Launch App";
+  const title = isSaikiran ? "Sai Kiran" : isLinkedIn ? "Siva Palaparthi" : "VPE App";
+  const subtitle = isSaikiran ? "Secret Identity" : isLinkedIn ? "LinkedIn Profile" : "VPE Frontend App";
+  const btnText = isSaikiran ? "View Photo" : isLinkedIn ? "Connect" : "Launch App";
 
   // Dynamic Theme Colors
   const theme = {
-    bgGradient: isPink
-      ? "bg-[radial-gradient(circle_at_center,_#500724_0%,_#000000_100%)]"
-      : isSaikiran
+    bgGradient: isSaikiran
       ? "bg-[radial-gradient(circle_at_center,_#0f172a_0%,_#000000_100%)]"
       : isLinkedIn 
       ? "bg-[radial-gradient(circle_at_center,_#330000_0%,_#000000_100%)]"
       : "bg-[radial-gradient(circle_at_center,_#3b0764_0%,_#000000_100%)]",
-    lineGradient: isPink
-      ? "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(244,114,182,0.1)_2px,rgba(244,114,182,0.1)_4px)]"
-      : isSaikiran
+    lineGradient: isSaikiran
       ? "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(59,130,246,0.1)_2px,rgba(59,130,246,0.1)_4px)]"
       : isLinkedIn
       ? "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,0,0,0.1)_2px,rgba(255,0,0,0.1)_4px)]"
       : "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(168,85,247,0.1)_2px,rgba(168,85,247,0.1)_4px)]",
-    titleText: isPink
-      ? "text-pink-500 drop-shadow-[0_0_15px_rgba(244,114,182,0.8)]"
-      : isSaikiran 
-      ? "text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]" 
-      : isLinkedIn 
-      ? "text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]" 
-      : "text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]",
-    cardBorder: isPink
-      ? "border-pink-500/20 hover:border-pink-500/50"
-      : isSaikiran 
-      ? "border-blue-500/20 hover:border-blue-500/50" 
-      : isLinkedIn 
-      ? "border-red-500/20 hover:border-red-500/50" 
-      : "border-purple-500/20 hover:border-purple-500/50",
-    cardShadow: isPink
-      ? "shadow-[0_0_50px_rgba(244,114,182,0.15)] hover:shadow-[0_0_80px_rgba(244,114,182,0.3)]"
-      : isSaikiran 
-      ? "shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:shadow-[0_0_80px_rgba(59,130,246,0.3)]" 
-      : isLinkedIn 
-      ? "shadow-[0_0_50px_rgba(220,38,38,0.15)] hover:shadow-[0_0_80px_rgba(220,38,38,0.3)]" 
-      : "shadow-[0_0_50px_rgba(168,85,247,0.15)] hover:shadow-[0_0_80px_rgba(168,85,247,0.3)]",
-    cardHoverBg: isPink
-      ? "from-pink-500/5"
-      : isSaikiran 
-      ? "from-blue-500/5" 
-      : isLinkedIn 
-      ? "from-red-500/5" 
-      : "from-purple-500/5",
-    iconBg: isPink
-      ? "bg-pink-950/40 border-pink-500/30 group-hover:border-pink-500/60"
-      : isSaikiran 
-      ? "bg-blue-950/40 border-blue-500/30 group-hover:border-blue-500/60" 
-      : isLinkedIn 
-      ? "bg-red-950/40 border-red-500/30 group-hover:border-red-500/60" 
-      : "bg-purple-950/40 border-purple-500/30 group-hover:border-purple-500/60",
-    iconColor: isPink
-      ? "text-pink-400 drop-shadow-[0_0_10px_rgba(244,114,182,0.8)]"
-      : isSaikiran 
-      ? "text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]" 
-      : isLinkedIn 
-      ? "text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]" 
-      : "text-purple-500 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]",
-    subtitleText: isPink
-      ? "text-pink-400"
-      : isSaikiran 
-      ? "text-blue-400" 
-      : isLinkedIn 
-      ? "text-red-400" 
-      : "text-purple-400",
-    btnTheme: isPink
-      ? "bg-pink-500/10 border-pink-500/30 group-hover:bg-pink-500/20 group-hover:border-pink-500/50 text-pink-400"
-      : isSaikiran 
+    titleText: isSaikiran ? "text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]" : isLinkedIn ? "text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]" : "text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]",
+    cardBorder: isSaikiran ? "border-blue-500/20 hover:border-blue-500/50" : isLinkedIn ? "border-red-500/20 hover:border-red-500/50" : "border-purple-500/20 hover:border-purple-500/50",
+    cardShadow: isSaikiran ? "shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:shadow-[0_0_80px_rgba(59,130,246,0.3)]" : isLinkedIn ? "shadow-[0_0_50px_rgba(220,38,38,0.15)] hover:shadow-[0_0_80px_rgba(220,38,38,0.3)]" : "shadow-[0_0_50px_rgba(168,85,247,0.15)] hover:shadow-[0_0_80px_rgba(168,85,247,0.3)]",
+    cardHoverBg: isSaikiran ? "from-blue-500/5" : isLinkedIn ? "from-red-500/5" : "from-purple-500/5",
+    iconBg: isSaikiran ? "bg-blue-950/40 border-blue-500/30 group-hover:border-blue-500/60" : isLinkedIn ? "bg-red-950/40 border-red-500/30 group-hover:border-red-500/60" : "bg-purple-950/40 border-purple-500/30 group-hover:border-purple-500/60",
+    iconColor: isSaikiran ? "text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]" : isLinkedIn ? "text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]" : "text-purple-500 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]",
+    subtitleText: isSaikiran ? "text-blue-400" : isLinkedIn ? "text-red-400" : "text-purple-400",
+    btnTheme: isSaikiran 
       ? "bg-blue-500/10 border-blue-500/30 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 text-blue-400"
       : isLinkedIn 
       ? "bg-red-500/10 border-red-500/30 group-hover:bg-red-500/20 group-hover:border-red-500/50 text-red-400"
@@ -126,12 +75,7 @@ const SecretSpace = ({ variant = 'linkedin' }) => {
           
           <div className="relative z-10 flex flex-col items-center w-full">
             <div className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-6 border group-hover:scale-110 transition-all duration-500 shadow-inner relative overflow-hidden ${theme.iconBg}`}>
-              {isPink ? (
-                <>
-                  <img src="/friends.jpg" alt="Friends" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" />
-                  <Users className={`w-12 h-12 relative z-10 ${theme.iconColor}`} />
-                </>
-              ) : isSaikiran ? (
+              {isSaikiran ? (
                 <>
                   <img src="/saikiran.jpg" alt="Sai Kiran" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen" />
                   <User className={`w-12 h-12 relative z-10 ${theme.iconColor}`} />
